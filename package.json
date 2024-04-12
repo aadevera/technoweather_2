@@ -1,0 +1,19 @@
+{
+  "name": "technoweather_2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start:dev": "NODE_ENV=development cross-env nodemon index.js",
+    "start:prod": "NODE_ENV=production cross-env node index.js"
+  },
+  "author": "Adrian de Vera",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "dotenv": "^16.4.5",
+    "prettier": "^3.2.5"
+  }
+}
