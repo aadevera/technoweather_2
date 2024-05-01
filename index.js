@@ -13,6 +13,19 @@ app.use(express.urlencoded({ extended: true }));
 const routes = require('./src/routes');
 const interceptor = require('./src/middlewares/interceptor');
 
+app.use(express.static('public'));
+
+app.set('views', 'src/views');
+app.set('view engine', 'ejs');
+
+app.get('/', (req, res) => {
+  res.redirect('/home');
+});
+
+app.use('/home', (req, res) => {
+  res.render('index', {});
+});
+
 app.use('/api', routes);
 app.use('*', require('./src/routes/404'));
 app.use(interceptor);
