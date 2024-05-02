@@ -10,6 +10,7 @@
   "author": "Adrian de Vera",
   "license": "ISC",
   "dependencies": {
+    "cors": "^2.8.5",
     "cross-env": "^7.0.3",
     "ejs": "^3.1.10",
     "express": "^4.19.2"

@@ -3,10 +3,13 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 // Get all environmental variables
-const { PORT, HOST } = process.env;
+const { PORT = 8080, HOST = 'localhost' } = process.env;
 
 const express = require('express');
 const app = express();
+const cors = require('cors');
+
+app.use(cors());
 
 app.use(express.urlencoded({ extended: true }));
 
