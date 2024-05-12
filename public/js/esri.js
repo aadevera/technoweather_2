@@ -16,4 +16,26 @@ require(['esri/config', 'esri/Map', 'esri/views/MapView'], function (
     zoom: 6, // Zoom level
     container: 'viewDiv', // Div element
   });
+
+  const updateBasemapStyle = (basemapId) => {
+    view.map.basemap = basemapId;
+  };
+
+  const basemapStylesDiv = document.getElementById('basemapStyles');
+  view.ui.add(basemapStylesDiv, 'top-right');
+
+  const styleCombobox = document.getElementById('styleCombobox');
+  styleCombobox.addEventListener('calciteComboboxChange', (event) => {
+    updateBasemapStyle(event.target.value);
+  });
+
+  view.watch('updating', function (event) {
+    if (event === true) {
+      const loadingDiv = document.getElementById('loadingDiv');
+      loadingDiv.classList.add('visible');
+    } else {
+      const loadingDiv = document.getElementById('loadingDiv');
+      loadingDiv.classList.remove('visible');
+    }
+  });
 });
