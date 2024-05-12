@@ -10,7 +10,6 @@ const app = express();
 const cors = require('cors');
 
 app.use(cors());
-
 app.use(express.urlencoded({ extended: true }));
 
 const routes = require('./src/routes');
